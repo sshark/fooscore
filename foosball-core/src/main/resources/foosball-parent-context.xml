@@ -39,7 +39,10 @@
                 <prop key="hibernate.cache.use_query_cache">true</prop>
             </props>
         </property>
+        <property name="namingStrategy"><ref bean="namingStrategy"/></property>
     </bean>
+
+    <bean id="namingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
 
     <!-- setup transaction manager	-->
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

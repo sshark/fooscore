@@ -23,9 +23,9 @@
     <!-- ==================================================================== -->
     <!-- Project Description                                                  -->
     <!-- ==================================================================== -->
-    <name>foosball-scoreskeeper</name>
+    <name>foosball-scorecard</name>
     <description>
-        TODO
+        Foosball player score card management
     </description>
 
 
