@@ -1,9 +1,5 @@
 package org.thlim;
 
-import org.thlim.error.InternalServerErrorPage;
-import org.thlim.home.HomePage;
-import org.thlim.security.LoginPage;
-
 import fiftyfive.wicket.js.JavaScriptDependencySettings;
 import fiftyfive.wicket.shiro.ShiroWicketPlugin;
 import fiftyfive.wicket.spring.FoundationSpringApplication;
@@ -12,7 +8,9 @@ import org.apache.wicket.request.Request;
 import org.apache.wicket.request.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.thlim.user.RegisterPlayerPage;
+import org.thlim.error.InternalServerErrorPage;
+import org.thlim.home.HomePage;
+import org.thlim.security.LoginPage;
 
 
 /**
@@ -52,7 +50,6 @@ public class WicketApplication extends FoundationSpringApplication
         // -- Configure pretty URL mappings ("routes") --
         // Note: merged JavaScript is also configured in WicketMappings.
         mount(new WicketMappings(this));
-        mountPage("/register", RegisterPlayerPage.class);
 
         // -- Configure resources --
         // Wicket will not allow you to use "../" to construct relative paths to resources

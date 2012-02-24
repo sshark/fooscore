@@ -1,5 +1,6 @@
 package org.thlim.dao.impl;
 
+import org.thlim.dao.PlayerDao;
 import org.thlim.model.Player;
 
 /**
@@ -9,7 +10,7 @@ import org.thlim.model.Player;
  * Time: 3:30 PM
  *
  */
-public class DefaultPlayerDao extends AbstractHibernateDaoImpl<Player>
+public class DefaultPlayerDao extends AbstractHibernateDaoImpl<Player> implements PlayerDao
 {
     public DefaultPlayerDao()
     {

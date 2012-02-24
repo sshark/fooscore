@@ -1,17 +1,16 @@
 package org.thlim;
 
+import fiftyfive.wicket.js.MergedJavaScriptBuilder;
+import fiftyfive.wicket.mapper.PatternMountedMapper;
+import org.apache.wicket.Page;
+import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.request.mapper.CompoundRequestMapper;
 import org.thlim.admin.AdministrationPage;
 import org.thlim.error.ForbiddenErrorPage;
 import org.thlim.error.InternalServerErrorPage;
 import org.thlim.error.NotFoundErrorPage;
-import org.thlim.home.HomePage;
-
-import fiftyfive.wicket.js.MergedJavaScriptBuilder;
-import fiftyfive.wicket.mapper.PatternMountedMapper;
-
-import org.apache.wicket.Page;
-import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.request.mapper.CompoundRequestMapper;
+import org.thlim.user.RecordGamePage;
+import org.thlim.user.RegisterPlayerPage;
 
 
 /**
@@ -28,7 +27,10 @@ public class WicketMappings extends CompoundRequestMapper
         addPage("error/403", ForbiddenErrorPage.class);
         addPage("error/404", NotFoundErrorPage.class);
         addPage("error/500", InternalServerErrorPage.class);
-        
+        addPage("/register", RegisterPlayerPage.class);
+        addPage("/record", RecordGamePage.class);
+
+
         // Common JavaScript merged together and mapped to scripts/all.js
         add(new MergedJavaScriptBuilder()
             .setPath("/scripts/all.js")
@@ -43,7 +45,7 @@ public class WicketMappings extends CompoundRequestMapper
             .addWicketAjaxLibraries()
             .buildRequestMapper(app));
     }
-    
+
     private void addPage(String path, Class<? extends Page> page)
     {
         add(new PatternMountedMapper(path, page).setExact(true));

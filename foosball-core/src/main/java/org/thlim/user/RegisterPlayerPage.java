@@ -1,13 +1,13 @@
 package org.thlim.user;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.IFormSubmitter;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
-import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.model.ComponentPropertyModel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.thlim.EmptyPage;
 import org.thlim.dao.PlayerDao;
 import org.thlim.model.Player;
 
@@ -18,10 +18,12 @@ import org.thlim.model.Player;
  * Time: 2:05 PM
  *
  */
-public class RegisterPlayerPage extends WebPage
+public class RegisterPlayerPage extends EmptyPage
 {
     @SpringBean
     private PlayerDao dao;
+
+    private String verifyPassword;
 
     public RegisterPlayerPage()
     {
@@ -32,12 +34,29 @@ public class RegisterPlayerPage extends WebPage
             {
                 dao.save(getModelObject());
             }
+
+            @Override
+            protected void callOnError(IFormSubmitter submitter)
+            {
+                System.out.println("error on submit");
+            }
         };
         add(newPlayerForm);
 
         newPlayerForm.add(new RequiredTextField("name"));
         newPlayerForm.add(new PasswordTextField("password").setRequired(true));
+        newPlayerForm.add(new PasswordTextField("verifyPassword", new PropertyModel<String>(this, "verifyPassword")).setRequired(true));
         newPlayerForm.add(new RequiredTextField("nick"));
         newPlayerForm.add(new RequiredTextField("email"));
+    }
+
+    public String getVerifyPassword()
+    {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword)
+    {
+        this.verifyPassword = verifyPassword;
     }
 }

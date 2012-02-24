@@ -233,26 +233,28 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
-                    <execution>
-                        <id>prep-settings</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <copy file="${basedir}/src/main/resources/foosball-parent.properties.SAMPLE"
-                                      tofile="${basedir}/foosball-parent.properties"
-                                      overwrite="false" />
-                                <copy file="${basedir}/src/main/resources/log4j.properties.SAMPLE"
-                                      tofile="${basedir}/src/test/resources/log4j.properties"
-                                      overwrite="false" />
-                                <copy file="${basedir}/src/main/resources/log4j.properties.SAMPLE"
-                                      tofile="${basedir}/log4j.properties"
-                                      overwrite="false" />
-                            </target>
-                        </configuration>
-                    </execution>
+                    <!--
+                        <execution>
+                            <id>prep-settings</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <configuration>
+                                <target>
+                                    <copy file="${basedir}/src/main/resources/foosball-parent.properties.SAMPLE"
+                                          tofile="${basedir}/foosball-parent.properties"
+                                          overwrite="false" />
+                                    <copy file="${basedir}/src/main/resources/log4j.properties.SAMPLE"
+                                          tofile="${basedir}/src/test/resources/log4j.properties"
+                                          overwrite="false" />
+                                    <copy file="${basedir}/src/main/resources/log4j.properties.SAMPLE"
+                                          tofile="${basedir}/log4j.properties"
+                                          overwrite="false" />
+                                </target>
+                            </configuration>
+                        </execution>
+                    -->
                     <!-- Runs `compass compile` to compile .scss files into .css      -->
                     <!-- during mvn compile, and `compass clean` during mvn clean.    -->
                     <!-- Note that this assumes each developer has compass,           -->

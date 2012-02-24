@@ -6,16 +6,17 @@
 <wicket:extend>
     <form wicket:id="newPlayerForm">
         <label>Name</label><br/>
-        <input wicket:id="name" type="input" />
-        <label>Nick (for login)</label>
-        <input wicket:id="nick" type="input" />
+        <input wicket:id="name" /><br/>
+        <label>Nick (for login)</label><br/>
+        <input wicket:id="nick" /><br/>
         <label>Email</label><br/>
-        <input wicket:id="email" type="input" />
-        <label>Password</label>
-        <input wicket:id="password" type="password" />
+        <input wicket:id="email" /><br/>
+        <label>Password</label><br/>
+        <input wicket:id="password" type="password" /><br/>
+        <label>Verify Password</label><br/>
+        <input wicket:id="verifyPassword" type="password" /><br/>
         <input type="submit" value="Register Player"/>
     </form>
-    <div wicket:id="feedback"></div>
 </wicket:extend>
 </body>
 </html>
