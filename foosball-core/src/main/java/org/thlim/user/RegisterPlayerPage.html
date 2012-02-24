@@ -4,19 +4,35 @@
 </wicket:head>
 <body>
 <wicket:extend>
-    <form wicket:id="newPlayerForm">
-        <label>Name</label><br/>
-        <input wicket:id="name" /><br/>
-        <label>Nick (for login)</label><br/>
-        <input wicket:id="nick" /><br/>
-        <label>Email</label><br/>
-        <input wicket:id="email" /><br/>
-        <label>Password</label><br/>
-        <input wicket:id="password" type="password" /><br/>
-        <label>Verify Password</label><br/>
-        <input wicket:id="verifyPassword" type="password" /><br/>
-        <input type="submit" value="Register Player"/>
-    </form>
+    <div class="container">
+    <div class="row">
+        <div class="fourcol"></div>
+        <div class="fourcol">
+            <h1>Register a new player</h1>
+        </div>
+        <div class="fourcol last"></div>
+    </div>
+    <div class="row">
+        <div class="fourcol"></div>
+        <div class="fourcol">
+            <form wicket:id="newPlayerForm">
+                <label>Name</label><br/>
+                <input wicket:id="name" type="text"/><br/>
+                <label>Nick (for login)</label><br/>
+                <input wicket:id="nick" type="text"/><br/>
+                <label>Email</label><br/>
+                <input wicket:id="email" type="email"/><br/>
+                <label>Password</label><br/>
+                <input wicket:id="password" type="password"/><br/>
+                <label>Verify Password</label><br/>
+                <input wicket:id="verifyPassword" type="password"/><br/>
+                <br/>
+                <input type="submit" value="Register Player"/>
+            </form>
+        </div>
+        <div class="fourcol last"></div>
+    </div>
+    </div>
 </wicket:extend>
 </body>
 </html>

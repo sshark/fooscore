@@ -1093,6 +1093,48 @@ img.ui-datepicker-trigger {
     border-radius: 1.5rem;
   }
 }
+/*-----[ login ]----------------------------------------------------------------
+| Styles for the login page. See _feature-1.scss for more details on how
+| feature-specific styles should be organized.
+*/
+#register #page {
+  padding: 2.2rem 2rem;
+}
+#register #page p:last-of-type,
+#register #page dl:last-of-type,
+#register #page ol:last-of-type,
+#register #page ul:last-of-type {
+  margin-bottom: 0;
+}
+#register #page form {
+  margin-bottom: 4.4rem;
+}
+#register #page input[type=email],
+#register #page input[type=password] {
+  width: 23rem;
+}
+#register #page footer {
+  color: gray;
+  font-style: italic;
+}
+
+@media (min-width: 480px) {
+  #register #page {
+    max-width: 25rem;
+  }
+}
+@media (min-width: 768px) {
+  #register #page {
+    margin: 5rem auto;
+    border: 0.2rem solid silver;
+    -moz-border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -khtml-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
 /*-----[ style guide ]----------------------------------------------------------
 */
 #style-guide #page {

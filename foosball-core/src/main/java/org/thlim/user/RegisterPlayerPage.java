@@ -1,7 +1,7 @@
 package org.thlim.user;
 
+import org.apache.wicket.markup.html.form.EmailTextField;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.IFormSubmitter;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -36,9 +36,10 @@ public class RegisterPlayerPage extends EmptyPage
             }
 
             @Override
-            protected void callOnError(IFormSubmitter submitter)
+            protected void onError()
             {
                 System.out.println("error on submit");
+
             }
         };
         add(newPlayerForm);
@@ -47,7 +48,7 @@ public class RegisterPlayerPage extends EmptyPage
         newPlayerForm.add(new PasswordTextField("password").setRequired(true));
         newPlayerForm.add(new PasswordTextField("verifyPassword", new PropertyModel<String>(this, "verifyPassword")).setRequired(true));
         newPlayerForm.add(new RequiredTextField("nick"));
-        newPlayerForm.add(new RequiredTextField("email"));
+        newPlayerForm.add(new EmailTextField("email").setRequired(true));
     }
 
     public String getVerifyPassword()
