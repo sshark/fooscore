@@ -1,7 +1,6 @@
 package org.thlim.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -49,9 +48,10 @@ public class Player implements Serializable
         return description;
     }
 
-    public void setDescription(String description)
+    public Player setDescription(String description)
     {
         this.description = description;
+        return this;
     }
 
     public Long getId()
@@ -59,9 +59,10 @@ public class Player implements Serializable
         return id;
     }
 
-    public void setId(Long id)
+    public Player setId(Long id)
     {
         this.id = id;
+        return this;
     }
 
     public String getName()
@@ -69,9 +70,10 @@ public class Player implements Serializable
         return name;
     }
 
-    public void setName(String name)
+    public Player setName(String name)
     {
         this.name = name;
+        return this;
     }
 
     public String getNick()
@@ -79,9 +81,10 @@ public class Player implements Serializable
         return nick;
     }
 
-    public void setNick(String nick)
+    public Player setNick(String nick)
     {
         this.nick = nick;
+        return this;
     }
 
     public String getPassword()
@@ -89,9 +92,10 @@ public class Player implements Serializable
         return password;
     }
 
-    public void setPassword(String password)
+    public Player setPassword(String password)
     {
         this.password = password;
+        return this;
     }
 
     public String getEmail()
@@ -99,9 +103,10 @@ public class Player implements Serializable
         return email;
     }
 
-    public void setEmail(String email)
+    public Player setEmail(String email)
     {
         this.email = email;
+        return this;
     }
 
     public Date getDateCreated()
@@ -109,8 +114,9 @@ public class Player implements Serializable
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated)
+    public Player setDateCreated(Date dateCreated)
     {
         this.dateCreated = dateCreated;
+        return this;
     }
 }

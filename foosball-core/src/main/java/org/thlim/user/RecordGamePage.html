@@ -4,18 +4,12 @@
 </wicket:head>
 <body>
 <wicket:extend>
-    <form wicket:id="newPlayerForm">
-        <label>Name</label><br/>
-        <input wicket:id="name" type="input" />
-        <label>Nick (for login)</label>
-        <input wicket:id="nick" type="input" />
-        <label>Email</label><br/>
-        <input wicket:id="email" type="input" />
-        <label>Password</label>
-        <input wicket:id="password" type="password" />
-        <input type="submit" value="Register Player"/>
+    <h1>Record a game</h1>
+
+    <div wicket:id="feedback" class="alerts"></div>
+    <form wicket:id="recordGameForm">
+
     </form>
-    <div wicket:id="feedback"></div>
 </wicket:extend>
 </body>
 </html>

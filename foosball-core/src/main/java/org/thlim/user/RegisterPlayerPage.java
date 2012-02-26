@@ -1,10 +1,17 @@
 package org.thlim.user;
 
+import java.util.Date;
+
+import org.apache.shiro.crypto.hash.Sha512Hash;
 import org.apache.wicket.markup.html.form.EmailTextField;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
+import org.apache.wicket.markup.html.form.validation.EqualPasswordInputValidator;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.thlim.EmptyPage;
@@ -27,28 +34,58 @@ public class RegisterPlayerPage extends EmptyPage
 
     public RegisterPlayerPage()
     {
+        getBody().setMarkupId("register-new-player");
+
+        FormComponent password = new PasswordTextField("password").setRequired(true);
+        FormComponent passwordVerification = new PasswordTextField("verifyPassword", new PropertyModel<String>(this, "verifyPassword")).setRequired(true);
         Form newPlayerForm = new Form<Player>("newPlayerForm", new CompoundPropertyModel<Player>(new Player()))
         {
             @Override
             protected void onSubmit()
             {
-                dao.save(getModelObject());
-            }
-
-            @Override
-            protected void onError()
-            {
-                System.out.println("error on submit");
-
+                Player player = getModelObject();
+                if (isNameNickEmailAvailable(this, player))
+                {
+                    player.setPassword(new Sha512Hash(player.getPassword()).toString());
+                    dao.save(player.setDateCreated(new Date()));
+                    setModelObject(new Player());
+                }
             }
         };
         add(newPlayerForm);
 
-        newPlayerForm.add(new RequiredTextField("name"));
-        newPlayerForm.add(new PasswordTextField("password").setRequired(true));
-        newPlayerForm.add(new PasswordTextField("verifyPassword", new PropertyModel<String>(this, "verifyPassword")).setRequired(true));
-        newPlayerForm.add(new RequiredTextField("nick"));
-        newPlayerForm.add(new EmailTextField("email").setRequired(true));
+        newPlayerForm.add(new EqualPasswordInputValidator(password, passwordVerification));
+
+        newPlayerForm.add(new RequiredTextField("name").setLabel(new Model("Name")));
+        newPlayerForm.add(password.setLabel(new Model("Password")));
+        newPlayerForm.add(passwordVerification.setLabel(new Model("Verify Password")));
+        newPlayerForm.add(new RequiredTextField("nick").setLabel(new Model("Nick")));
+        newPlayerForm.add(new EmailTextField("email").setRequired(true).setLabel(new Model("Email")));
+
+        add(new FeedbackPanel("feedback"));
+    }
+
+    private boolean isNameNickEmailAvailable(Form<Player> form, Player player)
+    {
+        boolean isAvailable = true;
+        if (dao.findByEmail(player.getEmail()) != null)
+        {
+            isAvailable = false;
+            form.error(player.getEmail() + " is taken");
+        }
+
+        if (dao.findByName(player.getName()) != null)
+        {
+            isAvailable = false;
+            form.error(player.getName() + " is taken");
+        }
+
+        if (dao.findByNick(player.getNick()) != null)
+        {
+            isAvailable = false;
+            form.error(player.getNick() + " is taken");
+        }
+        return isAvailable;
     }
 
     public String getVerifyPassword()

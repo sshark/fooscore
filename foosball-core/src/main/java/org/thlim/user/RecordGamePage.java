@@ -1,6 +1,9 @@
 package org.thlim.user;
 
-import org.thlim.BasePage;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.thlim.EmptyPage;
+import org.thlim.model.Game;
 
 /**
  *
@@ -9,6 +12,23 @@ import org.thlim.BasePage;
  * Time: 10:41 AM
  *
  */
-public class RecordGamePage extends BasePage
+
+//@RequiresAuthentication
+public class RecordGamePage extends EmptyPage
 {
+    public RecordGamePage()
+    {
+        getBody().setMarkupId("record-a-game");
+        add(new FeedbackPanel("feedback"));
+
+        Form recordGameForm = new Form<Game>("recordGameForm")
+        {
+            @Override
+            protected void onSubmit()
+            {
+
+            }
+        };
+        add(recordGameForm);
+    }
 }

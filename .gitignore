@@ -7,3 +7,4 @@ src/main/resources/org/thlim/styles-compiled/
 src/main/resources/org/thlim/images/icon-*
 .idea/
 *.iml
+styles-compiled/

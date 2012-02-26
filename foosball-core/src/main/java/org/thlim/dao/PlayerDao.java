@@ -1,5 +1,7 @@
 package org.thlim.dao;
 
+import java.util.List;
+
 import org.thlim.model.Player;
 
 /**
@@ -11,4 +13,8 @@ import org.thlim.model.Player;
  */
 public interface PlayerDao extends Dao<Player>
 {
+    Player findByName(String name);
+    Player findByNick(String nick);
+    Player findByEmail(String email);
+    List<Player> findByNameNickOrEmail(String name, String nick, String email);
 }
