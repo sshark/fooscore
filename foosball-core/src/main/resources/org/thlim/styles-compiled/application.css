@@ -1093,38 +1093,80 @@ img.ui-datepicker-trigger {
     border-radius: 1.5rem;
   }
 }
-/*-----[ login ]----------------------------------------------------------------
-| Styles for the login page. See _feature-1.scss for more details on how
+/*-----[ register ]----------------------------------------------------------------
+| Styles for the register page. See _feature-1.scss for more details on how
 | feature-specific styles should be organized.
 */
-#register #page {
+#register-new-player #page {
   padding: 2.2rem 2rem;
 }
-#register #page p:last-of-type,
-#register #page dl:last-of-type,
-#register #page ol:last-of-type,
-#register #page ul:last-of-type {
+#register-new-player #page p:last-of-type,
+#register-new-player #page dl:last-of-type,
+#register-new-player #page ol:last-of-type,
+#register-new-player #page ul:last-of-type {
   margin-bottom: 0;
 }
-#register #page form {
+#register-new-player #page form {
   margin-bottom: 4.4rem;
 }
-#register #page input[type=email],
-#register #page input[type=password] {
+#register-new-player #page input[type=email],
+#register-new-player #page input[type=password] {
   width: 23rem;
 }
-#register #page footer {
+#register-new-player #page footer {
   color: gray;
   font-style: italic;
 }
 
 @media (min-width: 480px) {
-  #register #page {
+  #register-new-player #page {
     max-width: 25rem;
   }
 }
 @media (min-width: 768px) {
-  #register #page {
+  #register-new-player #page {
+    margin: 5rem auto;
+    border: 0.2rem solid silver;
+    -moz-border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -khtml-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
+/*-----[ register ]----------------------------------------------------------------
+| Styles for the register page. See _feature-1.scss for more details on how
+| feature-specific styles should be organized.
+*/
+#record-a-game #page {
+  padding: 2.2rem 2rem;
+}
+#record-a-game #page p:last-of-type,
+#record-a-game #page dl:last-of-type,
+#record-a-game #page ol:last-of-type,
+#record-a-game #page ul:last-of-type {
+  margin-bottom: 0;
+}
+#record-a-game #page form {
+  margin-bottom: 4.4rem;
+}
+#record-a-game #page input[type=email],
+#record-a-game #page input[type=password] {
+  width: 23rem;
+}
+#record-a-game #page footer {
+  color: gray;
+  font-style: italic;
+}
+
+@media (min-width: 480px) {
+  #record-a-game #page {
+    max-width: 25rem;
+  }
+}
+@media (min-width: 768px) {
+  #record-a-game #page {
     margin: 5rem auto;
     border: 0.2rem solid silver;
     -moz-border-radius: 1.5rem;
