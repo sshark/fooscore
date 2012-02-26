@@ -3,8 +3,7 @@ target/
 /foosball-parent.properties
 /log4j.properties
 src/test/resources/log4j.properties
-src/main/resources/org/thlim/styles-compiled/
-src/main/resources/org/thlim/images/icon-*
+**/src/main/resources/org/thlim/styles-compiled/
+**/src/main/resources/org/thlim/images/icon-*
 .idea/
 *.iml
-styles-compiled/
