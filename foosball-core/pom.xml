@@ -121,10 +121,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
         </dependency>
         <dependency>
@@ -157,7 +153,10 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
         <!-- ==== Test dependencies =========================================== -->
         <dependency>
             <groupId>com.55minutes</groupId>
@@ -267,7 +266,14 @@
                         </goals>
                         <configuration>
                             <target>
+                                <exec executable="compass.bat"
+                                      osfamily="windows"
+                                      failonerror="true"
+                                      dir="${basedir}/src/main/resources/org/thlim">
+                                    <arg value="compile" />
+                                </exec>
                                 <exec executable="compass"
+                                      osfamily="unix"
                                       failonerror="true"
                                       dir="${basedir}/src/main/resources/org/thlim">
                                     <arg value="compile" />
@@ -283,7 +289,14 @@
                         </goals>
                         <configuration>
                             <target>
+                                <exec executable="compass.bat"
+                                      osfamily="windows"
+                                      failonerror="true"
+                                      dir="${basedir}/src/main/resources/org/thlim">
+                                    <arg value="clean" />
+                                </exec>
                                 <exec executable="compass"
+                                      osfamily="unix"
                                       failonerror="true"
                                       dir="${basedir}/src/main/resources/org/thlim">
                                     <arg value="clean" />
