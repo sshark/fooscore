@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 public class Team implements Serializable
 {
     enum TeamColor {WHITE, BLACK}
-    
+
     @Id
     @GeneratedValue
     private Long id;
@@ -40,9 +40,9 @@ public class Team implements Serializable
 
     public Team(Long id, Player attacker, Player defender, TeamColor color)
     {
-        this(id, attacker, defender, color, false);    
+        this(id, attacker, defender, color, false);
     }
-    
+
     public Team(Long id, Player attacker, Player defender, TeamColor color, Boolean winner)
     {
         this.id = id;
@@ -100,5 +100,24 @@ public class Team implements Serializable
     public void setDefender(Player defender)
     {
         this.defender = defender;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team)o;
+
+        if (id != null ? !id.equals(team.id) : team.id != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return id != null ? id.hashCode() : 0;
     }
 }

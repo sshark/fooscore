@@ -1,6 +1,6 @@
 <html xmlns:wicket="wicket.apache.org">
 <wicket:head>
-    <title>Register New Player</title>
+    <title>Record A Game</title>
 </wicket:head>
 <body>
 <wicket:extend>
@@ -8,7 +8,87 @@
 
     <div wicket:id="feedback" class="alerts"></div>
     <form wicket:id="recordGameForm">
-
+        <table>
+            <tr>
+                <th></th>
+                <th>White Team</th>
+            </tr>
+            <tr>
+                <td>Attacker</td>
+                <td>
+                    <select wicket:id="whiteAttacker">
+                        <option>James</option>
+                        <option>Alice</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Defender</td>
+                <td>
+                    <select wicket:id="whiteDefender">
+                        <option>James</option>
+                        <option>Alice</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Score</td>
+                <td>
+                    <select wicket:id="whiteScore">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Black Team</th>
+            </tr>
+            <tr>
+                <td>Attacker</td>
+                <td>
+                    <select wicket:id="blackAttacker">
+                        <option>James</option>
+                        <option>Alice</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Defender</td>
+                <td>
+                    <select wicket:id="blackDefender">
+                        <option>James</option>
+                        <option>Alice</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Score</td>
+                <td>
+                    <select wicket:id="blackScore">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr /></td>
+            </tr>
+            <tr>
+                <td>Duration</td>
+                <td><input wicket:id="duration" size="5" />&nbsp;<a href="#">Start</a>&nbsp;<a href="#">Stop</a></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Save game" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    &gt;&gt;&nbsp;<wicket:link><a href="RegisterPlayerPage.html">Register a player</a></wicket:link>
+                </td>
+            </tr>
+        </table>
     </form>
 </wicket:extend>
 </body>

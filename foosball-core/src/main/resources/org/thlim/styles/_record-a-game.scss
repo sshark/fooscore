@@ -19,16 +19,20 @@
     margin-bottom: $section-spacing;
   }
 
-  input[type=email],
-  input[type=password]
-  {
-    width: 23rem;
-  }
-
   footer
   {
     color: $secondary-text-color;
     font-style: italic;
+  }
+
+  tbody td
+  {
+    border : 0px;
+  }
+
+  table
+  {
+    border-bottom : 0px;
   }
 }
 
@@ -44,6 +48,7 @@
 {
   #record-a-game #page
   {
+/*    max-width: 40rem; */
     margin: 5rem auto;
     border: 0.2rem solid $silver;
     @include border-radius(1.5rem);

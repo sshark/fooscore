@@ -119,4 +119,23 @@ public class Player implements Serializable
         this.dateCreated = dateCreated;
         return this;
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Player player = (Player)o;
+
+        if (email != null ? !email.equals(player.email) : player.email != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return email != null ? email.hashCode() : 0;
+    }
 }

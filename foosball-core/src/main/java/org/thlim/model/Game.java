@@ -26,9 +26,9 @@ public class Game implements Serializable
 
     private Team white;
     private Team black;
-    
+
     private long durationMillis;
-    
+
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dateCreated = new Date();
 
@@ -90,5 +90,24 @@ public class Game implements Serializable
     public void setDateCreated(Date dateCreated)
     {
         this.dateCreated = dateCreated;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Game game = (Game)o;
+
+        if (id != null ? !id.equals(game.id) : game.id != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return id != null ? id.hashCode() : 0;
     }
 }
