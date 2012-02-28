@@ -10,11 +10,15 @@
     <form wicket:id="recordGameForm">
         <table>
             <tr>
+                <td><label wicket:id="playersConfLabel">Players Configuration</label></td>
+                <td><span wicket:id="playersConf"></span></td>
+            </tr>
+            <tr>
                 <th></th>
                 <th>White Team</th>
             </tr>
             <tr>
-                <td>Attacker</td>
+                <td><label wicket:id="whiteAttackerLabel">Attacker</label></td>
                 <td>
                     <select wicket:id="whiteAttacker">
                         <option>James</option>
@@ -23,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Defender</td>
+                <td><label wicket:id="whiteDefenderLabel">Defender</label></td>
                 <td>
                     <select wicket:id="whiteDefender">
                         <option>James</option>
@@ -46,7 +50,7 @@
                 <th>Black Team</th>
             </tr>
             <tr>
-                <td>Attacker</td>
+                <td><label wicket:id="blackAttackerLabel">Attacker</label></td>
                 <td>
                     <select wicket:id="blackAttacker">
                         <option>James</option>
@@ -55,7 +59,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Defender</td>
+                <td><label wicket:id="blackDefenderLabel">Defender</label></td>
                 <td>
                     <select wicket:id="blackDefender">
                         <option>James</option>
@@ -74,11 +78,19 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><hr /></td>
+                <th></th>
+                <th>Details</th>
             </tr>
             <tr>
-                <td>Duration</td>
-                <td><input wicket:id="duration" size="5" />&nbsp;<a href="#">Start</a>&nbsp;<a href="#">Stop</a></td>
+                <td><label wicket:id="durationLabel">Duration</label></td>
+                <td>
+                    <input wicket:id="durationMins" size="1" maxlength="2" />:<input wicket:id="durationSeconds" size="1" maxlength="2" />
+                    <!--
+                    <a href="#">Start</a>&nbsp;
+                    <a href="#">Stop</a>&nbsp;
+                    <a href="#">Reset</a>
+                    -->
+                </td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Save game" /></td>

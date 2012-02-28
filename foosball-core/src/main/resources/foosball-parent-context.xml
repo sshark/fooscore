@@ -63,4 +63,12 @@
     <bean class="org.thlim.dao.impl.DefaultPlayerDao">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+
+    <bean class="org.thlim.dao.impl.DefaultTeamDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean class="org.thlim.dao.impl.DefaultGameDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 </beans>

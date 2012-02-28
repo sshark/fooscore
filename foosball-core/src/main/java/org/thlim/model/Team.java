@@ -4,8 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,54 +23,88 @@ import javax.persistence.TemporalType;
 @Entity
 public class Team implements Serializable
 {
-    enum TeamColor {WHITE, BLACK}
+    public enum TeamColor {WHITE, BLACK}
 
     @Id
     @GeneratedValue
     private Long id;
 
+    @OneToOne
     private Player attacker;
+
+    @OneToOne
     private Player defender;
+
     private Boolean winner;
-    private TeamColor color;
+
+    @Enumerated(EnumType.ORDINAL)
+    private TeamColor teamColor;
+    private int score;
 
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dateCreated = new Date();
 
-    public Team()
+    public Team() {}
+
+    public Team(TeamColor teamColor)
     {
+        this.teamColor = teamColor;
     }
 
-    public Team(Long id, Player attacker, Player defender, TeamColor color)
+    public Team(Player attacker, Player defender, TeamColor teamColor)
     {
-        this(id, attacker, defender, color, false);
+        this(attacker, defender, teamColor, false);
     }
 
-    public Team(Long id, Player attacker, Player defender, TeamColor color, Boolean winner)
+    public Team(Player attacker, Player defender, TeamColor teamColor, Boolean winner)
     {
-        this.id = id;
         this.attacker = attacker;
         this.defender = defender;
-        this.color = color;
+        this.teamColor = teamColor;
         this.winner = winner;
     }
 
-    public TeamColor getColor()
+    public Date getDateCreated()
     {
-        return color;
+        return dateCreated;
     }
 
-    public void setColor(TeamColor color)
+    public void setDateCreated(Date dateCreated)
     {
-        this.color = color;
+        this.dateCreated = dateCreated;
     }
 
-    public boolean isWinner()
+    public int getScore()
     {
-        return (winner == null) ? false : winner;
+        return score;
     }
 
-    public void setWinner(boolean winner)
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
+
+    public TeamColor getTeamColor()
+    {
+        return teamColor;
+    }
+
+    public void setTeamColor(TeamColor teamColor)
+    {
+        this.teamColor = teamColor;
+    }
+
+    public Boolean isWinner()
+    {
+        return (winner == null) ? Boolean.FALSE : winner;
+    }
+
+    public Boolean getWinner()
+    {
+        return winner;
+    }
+
+    public void setWinner(Boolean winner)
     {
         this.winner = winner;
     }

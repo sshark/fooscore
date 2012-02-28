@@ -3,6 +3,8 @@ package org.thlim.user;
 import java.util.Date;
 
 import org.apache.shiro.crypto.hash.Sha512Hash;
+import org.apache.wicket.Component;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.EmailTextField;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.FormComponent;
@@ -17,6 +19,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.thlim.EmptyPage;
 import org.thlim.dao.PlayerDao;
 import org.thlim.model.Player;
+import org.thlim.util.CommFunc;
 
 /**
  *
@@ -35,6 +38,7 @@ public class RegisterPlayerPage extends EmptyPage
     public RegisterPlayerPage()
     {
         getBody().setMarkupId("register-new-player");
+        add(new FeedbackPanel("feedback"));
 
         FormComponent password = new PasswordTextField("password").setRequired(true);
         FormComponent passwordVerification = new PasswordTextField("verifyPassword", new PropertyModel<String>(this, "verifyPassword")).setRequired(true);
@@ -56,13 +60,20 @@ public class RegisterPlayerPage extends EmptyPage
 
         newPlayerForm.add(new EqualPasswordInputValidator(password, passwordVerification));
 
-        newPlayerForm.add(new RequiredTextField("name").setLabel(new Model("Name")));
+        Component name = new RequiredTextField("name").setLabel(new Model("Name"));
+        newPlayerForm.add(name);
         newPlayerForm.add(password.setLabel(new Model("Password")));
         newPlayerForm.add(passwordVerification.setLabel(new Model("Verify Password")));
-        newPlayerForm.add(new RequiredTextField("nick").setLabel(new Model("Nick")));
-        newPlayerForm.add(new EmailTextField("email").setRequired(true).setLabel(new Model("Email")));
+        Component nick = new RequiredTextField("nick").setLabel(new Model("Nick"));
+        newPlayerForm.add(nick);
+        Component email = new EmailTextField("email").setRequired(true).setLabel(new Model("Email"));
+        newPlayerForm.add(email);
 
-        add(new FeedbackPanel("feedback"));
+        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("nameLabel", "Name"), name));
+        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("emailLabel", "Email"), email));
+        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("nickLabel", "Nick"), nick));
+        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("passwordLabel", "Password"), password));
+        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("verifyPasswordLabel", "Verify Password"), passwordVerification));
     }
 
     private boolean isNameNickEmailAvailable(Form<Player> form, Player player)

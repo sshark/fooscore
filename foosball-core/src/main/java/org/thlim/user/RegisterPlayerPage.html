@@ -8,15 +8,15 @@
 
     <div wicket:id="feedback" class="alerts"></div>
     <form wicket:id="newPlayerForm">
-        <label>Name</label><br/>
-        <input wicket:id="name" type="text"/><br/>
-        <label>Nick (for login)</label><br/>
-        <input wicket:id="nick" type="text"/><br/>
-        <label>Email</label><br/>
+        <label wicket:id="nameLabel">Name</label><br/>
+        <input wicket:id="name" type="text" maxlength="12"/><br/>
+        <label wicket:id="nickLabel">Nick (for login)</label><br/>
+        <input wicket:id="nick" type="text" maxlength="12"/><br/>
+        <label wicket:id="emailLabel">Email</label><br/>
         <input wicket:id="email" type="email"/><br/>
-        <label>Password</label><br/>
+        <label wicket:id="passwordLabel">Password</label><br/>
         <input wicket:id="password" type="password"/><br/>
-        <label>Verify Password</label><br/>
+        <label wicket:id="verifyPasswordLabel">Verify Password</label><br/>
         <input wicket:id="verifyPassword" type="password"/><br/>
         <br/>
         <input type="submit" value="Register Player"/><br/>

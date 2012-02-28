@@ -4,8 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,17 +23,52 @@ import javax.persistence.TemporalType;
 @Entity
 public class Game implements Serializable
 {
+    public enum PlayerConfiguration {
+        TwoPlayers(2, "2 Players"), FourPlayers(4, "4 Players");
+
+        private int quantity;
+        private String description;
+
+        PlayerConfiguration(int quantity, String description)
+        {
+            this.quantity = quantity;
+            this.description = description;
+        }
+
+        @Override
+        public String toString()
+        {
+            return description;
+        }
+
+        public String getDescription()
+        {
+            return description;
+        }
+
+        public int getQuantity()
+        {
+            return quantity;
+        }
+    }
+
     @Id
     @GeneratedValue
     private Long id;
 
+    @OneToOne
     private Team white;
+
+    @OneToOne
     private Team black;
 
     private long durationMillis;
 
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dateCreated = new Date();
+
+    @Enumerated(EnumType.ORDINAL)
+    private PlayerConfiguration playersConf = PlayerConfiguration.FourPlayers;
 
     public Game()
     {
@@ -40,6 +78,16 @@ public class Game implements Serializable
     {
         this.white = white;
         this.black = black;
+    }
+
+    public PlayerConfiguration getPlayersConf()
+    {
+        return playersConf;
+    }
+
+    public void setPlayersConf(PlayerConfiguration playersConf)
+    {
+        this.playersConf = playersConf;
     }
 
     public Long getId()
@@ -77,7 +125,7 @@ public class Game implements Serializable
         return durationMillis;
     }
 
-    public void setDurationMillis(long durationMillis)
+    public void setDuration(long durationMillis)
     {
         this.durationMillis = durationMillis;
     }
