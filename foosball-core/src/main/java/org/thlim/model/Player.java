@@ -27,9 +27,6 @@ public class Player implements Serializable
     private Long id;
 
     @NotNull
-    private String name;
-
-    @NotNull
     private String nick;
 
     @NotNull
@@ -62,17 +59,6 @@ public class Player implements Serializable
     public Player setId(Long id)
     {
         this.id = id;
-        return this;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public Player setName(String name)
-    {
-        this.name = name;
         return this;
     }
 

@@ -158,6 +158,15 @@
   }
 }
 
+@media (max-width: 480px)
+{
+  #wicketDebugBar
+  {
+    display: none;
+  }
+
+}
+
 @media (min-width: 480px)
 {
   #style-guide

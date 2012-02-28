@@ -16,5 +16,6 @@ public interface PlayerDao extends Dao<Player>
     Player findByName(String name);
     Player findByNick(String nick);
     Player findByEmail(String email);
+    Player findBy(String email, String password);
     List<Player> findByNameNickOrEmail(String name, String nick, String email);
 }

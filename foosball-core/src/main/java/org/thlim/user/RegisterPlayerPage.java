@@ -48,7 +48,7 @@ public class RegisterPlayerPage extends EmptyPage
             protected void onSubmit()
             {
                 Player player = getModelObject();
-                if (isNameNickEmailAvailable(this, player))
+                if (isNickEmailAvailable(this, player))
                 {
                     player.setPassword(new Sha512Hash(player.getPassword()).toString());
                     dao.save(player.setDateCreated(new Date()));
@@ -60,8 +60,6 @@ public class RegisterPlayerPage extends EmptyPage
 
         newPlayerForm.add(new EqualPasswordInputValidator(password, passwordVerification));
 
-        Component name = new RequiredTextField("name").setLabel(new Model("Name"));
-        newPlayerForm.add(name);
         newPlayerForm.add(password.setLabel(new Model("Password")));
         newPlayerForm.add(passwordVerification.setLabel(new Model("Verify Password")));
         Component nick = new RequiredTextField("nick").setLabel(new Model("Nick"));
@@ -69,26 +67,19 @@ public class RegisterPlayerPage extends EmptyPage
         Component email = new EmailTextField("email").setRequired(true).setLabel(new Model("Email"));
         newPlayerForm.add(email);
 
-        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("nameLabel", "Name"), name));
         newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("emailLabel", "Email"), email));
         newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("nickLabel", "Nick"), nick));
         newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("passwordLabel", "Password"), password));
         newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("verifyPasswordLabel", "Verify Password"), passwordVerification));
     }
 
-    private boolean isNameNickEmailAvailable(Form<Player> form, Player player)
+    private boolean isNickEmailAvailable(Form<Player> form, Player player)
     {
         boolean isAvailable = true;
         if (dao.findByEmail(player.getEmail()) != null)
         {
             isAvailable = false;
             form.error(player.getEmail() + " is taken");
-        }
-
-        if (dao.findByName(player.getName()) != null)
-        {
-            isAvailable = false;
-            form.error(player.getName() + " is taken");
         }
 
         if (dao.findByNick(player.getNick()) != null)

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.ChoiceRenderer;
 import org.apache.wicket.markup.html.form.DropDownChoice;
@@ -37,7 +38,7 @@ import org.thlim.util.CommFunc;
  *
  */
 
-//@RequiresAuthentication
+@RequiresAuthentication
 public class RecordGamePage extends EmptyPage
 {
     @SpringBean

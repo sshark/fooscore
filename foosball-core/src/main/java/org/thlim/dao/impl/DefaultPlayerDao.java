@@ -45,6 +45,15 @@ public class DefaultPlayerDao extends AbstractHibernateDaoImpl<Player> implement
 
     @Override
     @Transactional
+    public Player findBy(String email, String password)
+    {
+        return (Player) getCurrentSession().createCriteria(Player.class)
+            .add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password)))
+            .uniqueResult();
+    }
+
+    @Override
+    @Transactional
     public List<Player> findByNameNickOrEmail(String name, String nick, String email)
     {
         return (List<Player>) getCurrentSession().createCriteria(Player.class)
