@@ -41,6 +41,7 @@
         <hibernate.version>3.6.7.Final</hibernate.version>
         <ehcache.version>2.4.6</ehcache.version>
         <hsqldb.version>2.2.4</hsqldb.version>
+        <shiro.version>1.2.0</shiro.version>
         <mysqldb.version>5.1.18</mysqldb.version>
         <hibernate.vaidator.version>4.2.0.Final</hibernate.vaidator.version>
     </properties>
@@ -175,6 +176,8 @@
                 <artifactId>fiftyfive-wicket-shiro</artifactId>
                 <version>${fiftyfive.version}</version>
             </dependency>
+
+            <!-- Wicket -->
             <dependency>
                 <groupId>org.apache.wicket</groupId>
                 <artifactId>wicket-core</artifactId>
@@ -204,6 +207,13 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- Shiro-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
             </dependency>
 
             <!-- Spring Framework -->

@@ -157,6 +157,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
+
+        <!-- Shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
+
         <!-- ==== Test dependencies =========================================== -->
         <dependency>
             <groupId>com.55minutes</groupId>

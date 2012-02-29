@@ -65,7 +65,7 @@ public class RecordGamePage extends EmptyPage
 
         final ListModel<Player> playersModel = new ListModel<Player>(playerDao.findAll());
 
-        final ChoiceRenderer<Player> playerNameRender = new ChoiceRenderer<Player>("name");
+        final ChoiceRenderer<Player> playerNameRender = new ChoiceRenderer<Player>("nick");
 
         final DropDownChoice<Player> whiteAttacker =
             new DropDownChoice<Player>("whiteAttacker",

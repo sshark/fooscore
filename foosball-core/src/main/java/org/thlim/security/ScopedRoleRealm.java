@@ -26,7 +26,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
-import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.crypto.hash.Sha512Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
@@ -63,7 +63,7 @@ public class ScopedRoleRealm extends AuthorizingRealm
     {
         setName("ScopedRoleRealm"); // This name must match the name in the User class's getPrincipals()  method
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
-        matcher.setHashAlgorithmName(Sha256Hash.ALGORITHM_NAME);
+        matcher.setHashAlgorithmName(Sha512Hash.ALGORITHM_NAME);
         setCredentialsMatcher(matcher);
     }
 
@@ -71,11 +71,11 @@ public class ScopedRoleRealm extends AuthorizingRealm
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken)
         throws AuthenticationException
     {
-        UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
-        Player user = playerDao.findBy(token.getUsername(), new String(token.getPassword()));
-        if (user != null)
+        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+        Player player = playerDao.findBy(token.getUsername(), new String(new Sha512Hash(token.getPassword()).toHex()));
+        if (player != null)
         {
-            return new SimpleAuthenticationInfo(user.getId(), user.getPassword(), getName());
+            return new SimpleAuthenticationInfo(player, player.getPassword(), getName());
         }
         return null;
     }
