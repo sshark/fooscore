@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.subject.Subject;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.ChoiceRenderer;
 import org.apache.wicket.markup.html.form.DropDownChoice;
@@ -122,6 +124,15 @@ public class RecordGamePage extends EmptyPage
                 game.setBlack(blackTeam);
 
                 game.setDuration(durarionMinsModel.getObject() * 60 + durarionSecondsModel.getObject());
+
+                Player currentUser = null;
+                Subject currentSubject = SecurityUtils.getSubject();
+                if (currentSubject.isAuthenticated())
+                {
+                    currentUser = (Player) SecurityUtils.getSubject().getPrincipal();
+                    game.setCreatedBy(currentUser);
+                }
+
                 gameDao.save(game);
 
                 setModelObject(new Game());

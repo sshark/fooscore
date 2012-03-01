@@ -5,15 +5,15 @@ import java.util.List;
 
 import fiftyfive.wicket.js.JavaScriptDependency;
 import fiftyfive.wicket.link.HomeLink;
-import static fiftyfive.wicket.util.Shortcuts.*;
-
-import org.apache.wicket.datetime.markup.html.basic.DateLabel;
 import org.apache.wicket.devutils.debugbar.DebugBar;
 import org.apache.wicket.markup.html.TransparentWebMarkupContainer;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+
+import static fiftyfive.wicket.util.Shortcuts.cssConditionalResource;
+import static fiftyfive.wicket.util.Shortcuts.cssPrintResource;
+import static fiftyfive.wicket.util.Shortcuts.cssResource;
 
 /**
  * The "bare metal" empty HTML5 template that is used by all pages in the application.
@@ -36,22 +36,24 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 public abstract class EmptyPage extends WebPage
 {
     private final WebMarkupContainer body;
-    
+
     public EmptyPage()
     {
         this(null);
     }
-    
+
     public EmptyPage(PageParameters params)
     {
         super(params);
-        
+
         // Set up <head> elements
         add(new HomeLink("home-link"));
-        
+
         // Set up JS
-        add(new JavaScriptDependency(EmptyPage.class));
-        
+        add(new JavaScriptDependency("jquery"));
+        //add(new JavaScriptDependency("jquery.jixedbar.min"));
+        add(new JavaScriptDependency("jquery.jixedbar"));
+
         // Set up CSS
         add(cssResource("styles-compiled/application.css"));
         List<String> breakPoints = Arrays.asList("480", "768", "1024", "1200");
@@ -63,15 +65,15 @@ public abstract class EmptyPage extends WebPage
         }
         add(cssConditionalResource("IE", "styles-compiled/ie.css"));
         add(cssPrintResource("styles-compiled/print.css"));
-        
+
         // Allow subclasses to register CSS classes on the body tag
         this.body = new TransparentWebMarkupContainer("body");
         this.body.setOutputMarkupId(true);
         add(this.body);
-        
+
         this.body.add(new DebugBar("debug"));
     }
-    
+
     /**
      * Return a component that represents the {@code <body>} of the page.
      * Use this to add CSS classes or set the markup ID for styling purposes.

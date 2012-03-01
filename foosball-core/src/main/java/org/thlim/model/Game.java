@@ -70,6 +70,9 @@ public class Game implements Serializable
     @Enumerated(EnumType.ORDINAL)
     private PlayerConfiguration playersConf = PlayerConfiguration.FourPlayers;
 
+    @OneToOne
+    private Player createdBy;
+
     public Game()
     {
     }
@@ -78,6 +81,16 @@ public class Game implements Serializable
     {
         this.white = white;
         this.black = black;
+    }
+
+    public Player getCreatedBy()
+    {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Player createdBy)
+    {
+        this.createdBy = createdBy;
     }
 
     public PlayerConfiguration getPlayersConf()

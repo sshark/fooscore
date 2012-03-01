@@ -29,6 +29,7 @@ public class WicketMappings extends CompoundRequestMapper
         addPage("error/500", InternalServerErrorPage.class);
         addPage("/register_player", RegisterPlayerPage.class);
         addPage("/record_game", RecordGamePage.class);
+        addPage("/menu", MenuPage.class);
 
         // Common JavaScript merged together and mapped to scripts/all.js
         add(new MergedJavaScriptBuilder()
