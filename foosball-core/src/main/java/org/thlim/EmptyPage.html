@@ -20,7 +20,7 @@
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     </wicket:link>
     <link rel="home" wicket:id="home-link"/>
-    <link type="text/css" href="themes/default/jx.stylesheet.css" rel="stylesheet" />
+    <link type="text/css" href="themes/default/jx.stylesheet.css" rel="stylesheet"/>
 </head>
 
 <body wicket:id="body">
@@ -37,38 +37,17 @@
 
 </div>
 <!-- /#page -->
-<div id="menu-bar">
-    <ul>
-        <li title="Home"><a href="http://ryan.rawswift.com/"><img src="icons/home.png" alt="" /></a></li>
-    </ul>
-    <span class="jx-separator-left"></span>
-    <ul>
-        <li title="Around The Web"><a href="#"><img src="icons/network.png" alt="Get Social" /></a>
-            <ul>
-                <li><a href="http://www.facebook.com/ryanyonzon"><img src="icons/facebook.png" title="Facebook" />&nbsp;&nbsp;&nbsp;Facebook</a></li>
-                <li><a href="http://twitter.com/rawswift"><img src="icons/twitter.png" title="Twitter" />&nbsp;&nbsp;&nbsp;Twitter</a></li>
-                <li><a href="http://www.flickr.com/photos/ryanyonzon/"><img src="icons/pictures.png" title="Flickr" />&nbsp;&nbsp;&nbsp;Flickr</a></li>
-                <li><a href="http://ph.linkedin.com/in/ryanyonzon"><img src="icons/card.png" title="Linkedin" />&nbsp;&nbsp;&nbsp;Linkedin</a></li>
-            </ul>
-        </li>
-    </ul>
-    <span class="jx-separator-left"></span>
-    <ul>
-        <li title="About"><a href="http://ryan.rawswift.com/about/"><img src="icons/info.png" alt="" /></a></li>
-        <li title="Resume"><a href="http://ryan.rawswift.com/resume/"><img src="icons/blogs.png" alt="" /></a></li>
-        <li title="Portfolio"><a href="http://ryan.rawswift.com/portfolio/"><img src="icons/block.png" alt="" /></a></li>
-    </ul>
-    <span class="jx-separator-left"></span>
-    <div class="text-container"><a href="http://code.google.com/p/jixedbar/">jixedbar</a> - a <a href="http://jquery.com/">jQuery</a> fixed bar plugin.</div>
-    <ul class="jx-bar-button-right">
-        <li title="Feeds"><a href="#"><img src="icons/feed.png" alt="" /></a>
-            <ul>
-                <li><a href="http://ryan.rawswift.com/feed/"><img src="icons/feed-doc.png" title="Content Feed" />&nbsp;&nbsp;&nbsp;Content Feed</a></li>
-                <li><a href="http://ryan.rawswift.com/comments/feed/"><img src="icons/ballon.png" title="Comment Feed" />&nbsp;&nbsp;&nbsp;Comment Feed</a></li>
-            </ul>
-        </li>
-    </ul>
-    <span class="jx-separator-right"></span>
-</div>
+    <div id="menu-bar">
+        <ul>
+            <li title="Home"><wicket:link><a href="/org/thlim/user/RecordGamePage.html"><img src="icons/home.png" alt=""/></a></wicket:link></li>
+        </ul>
+        <span class="jx-separator-left"></span>
+        <ul>
+            <li title="Login"><wicket:link><a href="/org/thlim/security/LoginPage.html"><img src="icons/info.png" alt=""/></a></wicket:link></li>
+            <li title="Logout"><wicket:link><a href="/org/thlim/security/LogoutPage.html"><img src="icons/blogs.png" alt=""/></a></wicket:link></li>
+        </ul>
+        <!--<span class="jx-separator-left"></span>-->
+        <span class="jx-separator-right"></span>
+    </div>
 </body>
 </html>
