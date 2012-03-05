@@ -51,8 +51,7 @@ public abstract class EmptyPage extends WebPage
 
         // Set up JS
         add(new JavaScriptDependency("jquery"));
-        //add(new JavaScriptDependency("jquery.jixedbar.min"));
-        add(new JavaScriptDependency("jquery.jixedbar"));
+        add(new JavaScriptDependency("jquery.jixedbar.min"));
 
         // Set up CSS
         add(cssResource("styles-compiled/application.css"));

@@ -239,35 +239,28 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
-                    <!--
-                        <execution>
-                            <id>prep-settings</id>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>run</goal>
-                            </goals>
-                            <configuration>
-                                <target>
-                                    <copy file="${basedir}/src/main/resources/foosball-parent.properties.SAMPLE"
-                                          tofile="${basedir}/foosball-parent.properties"
-                                          overwrite="false" />
-                                    <copy file="${basedir}/src/main/resources/log4j.properties.SAMPLE"
-                                          tofile="${basedir}/src/test/resources/log4j.properties"
-                                          overwrite="false" />
-                                    <copy file="${basedir}/src/main/resources/log4j.properties.SAMPLE"
-                                          tofile="${basedir}/log4j.properties"
-                                          overwrite="false" />
-                                </target>
-                            </configuration>
-                        </execution>
-                    -->
+                    <execution>
+                        <id>prep-settings</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy todir="${project.build.outputDirectory}/org/thlim/styles-compiled"
+                                      overwrite="true">
+                                    <fileset dir="${basedir}/src/main/resources/org/thlim/styles-compiled" />
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
                     <!-- Runs `compass compile` to compile .scss files into .css      -->
                     <!-- during mvn compile, and `compass clean` during mvn clean.    -->
                     <!-- Note that this assumes each developer has compass,           -->
                     <!-- compass-colors and sassy-buttons ruby gems installed.        -->
                     <execution>
                         <id>compile-scss</id>
-                        <phase>compile</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
@@ -313,17 +306,39 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <suffix>.min</suffix>
+                    <excludes>
+                        <exclude>**/*.java</exclude>
+                        <exclude>**/*.html</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            -->
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
+                    <!--
                     <systemProperties>
                         <systemProperty>
                             <name>wicket.configuration</name>
                             <value>development</value>
                         </systemProperty>
                     </systemProperties>
+                    -->
                     <reload>manual</reload>
                     <webAppConfig>
                         <contextPath>/</contextPath>
