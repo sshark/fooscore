@@ -1,29 +1,28 @@
+<html xmlns:wicket="wicket.apache.org">
 <wicket:head>
   <title>Please Log In</title>
 </wicket:head>
 <wicket:extend>
   <h1>Please Log In</h1>
-  
+
   <div wicket:id="feedback" class="alerts"></div>
-  
+
   <form wicket:id="login" method="post">
-    <fieldset class="stacked login">
-      
-      <div class="field">
+
+      <fieldset>
         <label for="email">Email</label>
         <input type="email" id="email" wicket:id="email"
                autocapitalize="off" autocorrect="off" autofocus="autofocus" />
-      </div> <!-- /.field -->
+      </fieldset>
 
-      <div class="field">
+      <fieldset>
         <label for="password">Password</label>
         <input type="password" id="password" wicket:id="password" />
-      </div> <!-- /.field -->
-      
-      <div class="button-bar group">
+      </fieldset>
+
+      <fieldset class="button-bar group">
         <input type="submit" value="Log in" />
-      </div> <!-- /.button-bar -->
-      
-    </fieldset> <!-- /.login -->
+      </fieldset>
   </form>
 </wicket:extend>
+</html>

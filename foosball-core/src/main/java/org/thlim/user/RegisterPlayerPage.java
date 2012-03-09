@@ -17,9 +17,9 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.thlim.EmptyPage;
+import org.thlim.common.Util;
 import org.thlim.dao.PlayerDao;
 import org.thlim.model.Player;
-import org.thlim.util.CommFunc;
 
 /**
  *
@@ -67,10 +67,10 @@ public class RegisterPlayerPage extends EmptyPage
         Component email = new EmailTextField("email").setRequired(true).setLabel(new Model("Email"));
         newPlayerForm.add(email);
 
-        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("emailLabel", "Email"), email));
-        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("nickLabel", "Nick"), nick));
-        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("passwordLabel", "Password"), password));
-        newPlayerForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("verifyPasswordLabel", "Verify Password"), passwordVerification));
+        newPlayerForm.add(Util.modifyClassOnTargetError("alerts", new Label("emailLabel", "Email"), email));
+        newPlayerForm.add(Util.modifyClassOnTargetError("alerts", new Label("nickLabel", "Nick"), nick));
+        newPlayerForm.add(Util.modifyClassOnTargetError("alerts", new Label("passwordLabel", "Password"), password));
+        newPlayerForm.add(Util.modifyClassOnTargetError("alerts", new Label("verifyPasswordLabel", "Verify Password"), passwordVerification));
     }
 
     private boolean isNickEmailAvailable(Form<Player> form, Player player)

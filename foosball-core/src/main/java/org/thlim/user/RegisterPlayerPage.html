@@ -8,17 +8,28 @@
 
     <div wicket:id="feedback" class="alerts"></div>
     <form wicket:id="newPlayerForm">
-        <label wicket:id="nickLabel">Nick </label><br/>
-        <input wicket:id="nick" type="text" maxlength="12"/><br/>
-        <label wicket:id="emailLabel">Email (for login)</label><br/>
-        <input wicket:id="email" type="email" autocapitalize="off" autocorrect="off" autofocus="autofocus"/><br/>
-        <label wicket:id="passwordLabel">Password</label><br/>
-        <input wicket:id="password" type="password"/><br/>
-        <label wicket:id="verifyPasswordLabel">Verify Password</label><br/>
-        <input wicket:id="verifyPassword" type="password"/><br/>
-        <br/>
-        <input type="submit" value="Register Player"/><br/>
-        &gt;&gt;&nbsp;<wicket:link><a href="RecordGamePage.html">Record a game</a></wicket:link>
+        <fieldset>
+            <label wicket:id="nickLabel">Nick </label>
+            <input wicket:id="nick" type="text" maxlength="12"/>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="emailLabel">Email (for login)</label>
+            <input wicket:id="email" type="email" autocapitalize="off" autocorrect="off" autofocus="autofocus"/>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="passwordLabel">Password</label>
+            <input wicket:id="password" type="password"/>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="verifyPasswordLabel">Verify Password</label>
+            <input wicket:id="verifyPassword" type="password"/>
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="Register Player"/>
+        </fieldset>
+        <fieldset>
+            &gt;&gt;&nbsp;<wicket:link><a href="RecordGamePage.html">Record a game</a></wicket:link>
+        </fieldset>
     </form>
 </wicket:extend>
 </body>

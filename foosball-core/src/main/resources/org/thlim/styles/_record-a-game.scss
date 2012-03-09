@@ -2,60 +2,13 @@
 | Styles for the register page. See _feature-1.scss for more details on how
 | feature-specific styles should be organized.
 */
-#record-a-game #page
+
+#record-a-game form fieldset label
 {
-  padding: $body-text-line-height $column-width;
-
-  p:last-of-type,
-  dl:last-of-type,
-  ol:last-of-type,
-  ul:last-of-type,
-  {
-    margin-bottom: 0;
-  }
-
-  label.alerts
-  {
-    color : #B72F14;
-  }
-
-  form
-  {
-    margin-bottom: $section-spacing;
-  }
-
-  footer
-  {
-    color: $secondary-text-color;
-    font-style: italic;
-  }
-
-  tbody td
-  {
-    border : 0px;
-  }
-
-  table
-  {
-    border-bottom : 0px;
-  }
+  display : inline ;
 }
 
-@media (min-width: 480px)
+#record-a-game form fieldset h3
 {
-  #record-a-game #page
-  {
-    max-width: 25rem;
-  }
-}
-
-@media (min-width: 768px)
-{
-  #record-a-game #page
-  {
-/*    max-width: 40rem; */
-    margin: 5rem auto;
-    border: 0.2rem solid $silver;
-    @include border-radius(1.5rem);
-  }
+  margin : 0;
 }

@@ -24,13 +24,13 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.MinimumValidator;
 import org.apache.wicket.validation.validator.RangeValidator;
 import org.thlim.EmptyPage;
+import org.thlim.common.Util;
 import org.thlim.dao.GameDao;
 import org.thlim.dao.PlayerDao;
 import org.thlim.dao.TeamDao;
 import org.thlim.model.Game;
 import org.thlim.model.Player;
 import org.thlim.model.Team;
-import org.thlim.util.CommFunc;
 
 /**
  *
@@ -151,10 +151,10 @@ public class RecordGamePage extends EmptyPage
         recordGameForm.add(whiteScore);
         recordGameForm.add(blackScore);
 
-        recordGameForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("whiteAttackerLabel", "Attacker"), whiteAttacker));
-        recordGameForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("whiteDefenderLabel", "Defender"), whiteDefender));
-        recordGameForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("blackAttackerLabel", "Attacker"), blackAttacker));
-        recordGameForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("blackDefenderLabel", "Defender"), blackDefender));
+        recordGameForm.add(Util.modifyClassOnTargetError("alerts ", new Label("whiteAttackerLabel", "Attacker"), whiteAttacker));
+        recordGameForm.add(Util.modifyClassOnTargetError("alerts", new Label("whiteDefenderLabel", "Defender"), whiteDefender));
+        recordGameForm.add(Util.modifyClassOnTargetError("alerts", new Label("blackAttackerLabel", "Attacker"), blackAttacker));
+        recordGameForm.add(Util.modifyClassOnTargetError("alerts", new Label("blackDefenderLabel", "Defender"), blackDefender));
 
         recordGameForm.add(new IFormValidator()
         {
@@ -217,7 +217,7 @@ public class RecordGamePage extends EmptyPage
 
         recordGameForm.add(playersConf);
 
-        recordGameForm.add(CommFunc.modifyClassOnTargetError("alerts",
+        recordGameForm.add(Util.modifyClassOnTargetError("alerts",
             new Label("playersConfLabel",
                 "Players Configuration"),
             playersConf));
@@ -233,8 +233,8 @@ public class RecordGamePage extends EmptyPage
             .setLabel(new Model<String>("Seconds"));
         recordGameForm.add(durationMins);
         recordGameForm.add(durationSeconds);
-        recordGameForm.add(CommFunc.modifyClassOnTargetError("alerts", new Label("durationLabel", "Duration (mm:ss)"), durationMins));
-        CommFunc.modifyClassOnTargetError("alerts", new Label("durationLabel", "Duration"), durationSeconds);
+        recordGameForm.add(Util.modifyClassOnTargetError("alerts", new Label("durationLabel", "Duration (mm:ss)"), durationMins));
+        Util.modifyClassOnTargetError("alerts", new Label("durationLabel", "Duration"), durationSeconds);
 
     }
 
@@ -242,6 +242,4 @@ public class RecordGamePage extends EmptyPage
     {
         return component.setLabel(new Model<String>(label));
     }
-
-
 }

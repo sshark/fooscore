@@ -321,7 +321,7 @@ span.keep-together
 $icons: sprite-map("icon/*.png");
 $icon-size: 1.6rem;
 
-.alerts, 
+.alerts,
 .alerts .feedbackPanel
 {
   margin: 0;
@@ -424,5 +424,25 @@ $icon-size: 1.6rem;
       padding: $vertical-nudge $column-width / 2;
       background-color: transparent;
     }
+  }
+}
+
+/*----------[ page width according to screen resolution ]-----------------------
+*/
+@media (min-width: 480px)
+{
+  #page
+  {
+    max-width: 25rem;
+  }
+}
+
+@media (min-width: 768px)
+{
+  #page
+  {
+    margin: 5rem auto;
+    border: 0.2rem solid $silver;
+    @include border-radius(1.5rem);
   }
 }

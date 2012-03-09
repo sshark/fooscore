@@ -8,99 +8,87 @@
 
     <div wicket:id="feedback" class="alerts"></div>
     <form wicket:id="recordGameForm">
-        <table>
-            <tr>
-                <td><label wicket:id="playersConfLabel">Players Configuration</label></td>
-                <td><span wicket:id="playersConf"></span></td>
-            </tr>
-            <tr>
-                <th></th>
-                <th>White Team</th>
-            </tr>
-            <tr>
-                <td><label wicket:id="whiteAttackerLabel">Attacker</label></td>
-                <td>
-                    <select wicket:id="whiteAttacker">
-                        <option>James</option>
-                        <option>Alice</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td><label wicket:id="whiteDefenderLabel">Defender</label></td>
-                <td>
-                    <select wicket:id="whiteDefender">
-                        <option>James</option>
-                        <option>Alice</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Score</td>
-                <td>
-                    <select wicket:id="whiteScore">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th></th>
-                <th>Black Team</th>
-            </tr>
-            <tr>
-                <td><label wicket:id="blackAttackerLabel">Attacker</label></td>
-                <td>
-                    <select wicket:id="blackAttacker">
-                        <option>James</option>
-                        <option>Alice</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td><label wicket:id="blackDefenderLabel">Defender</label></td>
-                <td>
-                    <select wicket:id="blackDefender">
-                        <option>James</option>
-                        <option>Alice</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Score</td>
-                <td>
-                    <select wicket:id="blackScore">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th></th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <td><label wicket:id="durationLabel">Duration</label></td>
-                <td>
-                    <input type="text" wicket:id="durationMins" size="1" maxlength="2" />:<input type="text" wicket:id="durationSeconds" size="1" maxlength="2" />
-                    <!--
-                    <a href="#">Start</a>&nbsp;
-                    <a href="#">Stop</a>&nbsp;
-                    <a href="#">Reset</a>
-                    -->
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="Save game" /></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    &gt;&gt;&nbsp;<wicket:link><a href="RegisterPlayerPage.html">Register a player</a></wicket:link>
-                </td>
-            </tr>
-        </table>
+        <fieldset>
+            <label wicket:id="playersConfLabel">Players Configuration</label>
+            <div wicket:id="playersConf" class="align-right"></div>
+        </fieldset>
+        <fieldset>
+            <h3 class="align-right">White Team</h3>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="whiteAttackerLabel" >Attacker</label>
+            <select wicket:id="whiteAttacker" class="align-right">
+                <option>James</option>
+                <option>Alice</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="whiteDefenderLabel">Defender</label>
+            <select class="align-right" wicket:id="whiteDefender">
+                <option>James</option>
+                <option>Alice</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label>Score</label>
+            <select class="align-right" wicket:id="whiteScore">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <h3 class="align-right">Black Team</h3>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="blackAttackerLabel">Attacker</label>
+            <select class="align-right" wicket:id="blackAttacker">
+                <option>James</option>
+                <option>Alice</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="blackDefenderLabel">Defender</label>
+            <select class="align-right" wicket:id="blackDefender">
+                <option>James</option>
+                <option>Alice</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label>Score</label>
+            <select class="align-right" wicket:id="blackScore">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+
+        </fieldset>
+        <fieldset>
+            <h3 class="align-right">Details</h3>
+        </fieldset>
+        <fieldset>
+            <label wicket:id="durationLabel">Duration</label>
+
+            <span class="align-right">
+            <input type="text" wicket:id="durationMins" size="1" maxlength="2"/>:<input type="text"
+                                                                                        wicket:id="durationSeconds"
+                                                                                        size="1" maxlength="2"/>
+            </span>
+            <!--
+            <a href="#">Start</a>&nbsp;
+            <a href="#">Stop</a>&nbsp;
+            <a href="#">Reset</a>
+            -->
+
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="Save game"/>
+        </fieldset>
+        <fieldset>
+            &gt;&gt;&nbsp;
+            <wicket:link><a href="RegisterPlayerPage.html">Register a player</a></wicket:link>
+
+        </fieldset>
     </form>
 </wicket:extend>
 </body>
