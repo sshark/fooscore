@@ -2,6 +2,7 @@ package org.thlim.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.shiro.SecurityUtils;
@@ -170,6 +171,34 @@ public class RecordGamePage extends EmptyPage
             @Override
             public void validate(Form<?> form)
             {
+                HashMap<String, Integer> playersMap = new HashMap<String, Integer>();
+                playersMap.put(whiteAttacker.getConvertedInput().getNick(), 1);
+
+                String whiteDefenderNick = whiteDefender.getConvertedInput().getNick();
+                if (playersMap.get(whiteDefenderNick) == null)
+                {
+                    playersMap.put(whiteDefenderNick, 2);
+                }
+                else
+                {
+                    whiteDefender.error(whiteDefenderNick + " is taken. Removed him/her as a white team defender");
+                }
+
+                String blackAttackerNick = blackAttacker.getConvertedInput().getNick();
+                if (playersMap.get(blackAttackerNick) == null)
+                {
+                    playersMap.put(blackAttackerNick, 3);
+                }
+                else
+                {
+                    blackAttacker.error(blackAttackerNick + " is taken. Removed him/her as a black team attacker");
+                }
+
+                String blackDefenderNick = blackDefender.getConvertedInput().getNick();
+                if (playersMap.get(blackDefenderNick) != null)
+                {
+                    blackDefender.error(blackDefenderNick + " is taken. Removed him/her as a black team defender");
+                }
             }
         });
 
