@@ -13,18 +13,18 @@
     <!-- ==================================================================== -->
     <parent>
         <groupId>org.thlim</groupId>
-        <artifactId>foosball-parent</artifactId>
+        <artifactId>fooscore-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>foosball-core</artifactId>
+    <artifactId>fooscore-core</artifactId>
     <packaging>war</packaging>
 
     <!-- ==================================================================== -->
     <!-- Project Description                                                  -->
     <!-- ==================================================================== -->
-    <name>foosball-core</name>
+    <name>Fooscore Core</name>
     <description>
-        TODO
+        Core application
     </description>
 
     <properties>

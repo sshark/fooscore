@@ -1,9 +1,7 @@
 package org.thlim.home;
 
-import org.thlim.BasePage;
-
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import static fiftyfive.wicket.util.Shortcuts.*;
+import org.thlim.BasePage;
 
 /**
  * Home page for foosball-score.

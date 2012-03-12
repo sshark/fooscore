@@ -4,13 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import fiftyfive.wicket.util.LoggingUtils;
-
 import org.apache.wicket.Page;
-
 import org.apache.wicket.authorization.AuthorizationException;
-
 import org.apache.wicket.protocol.http.PageExpiredException;
-
 import org.apache.wicket.request.IRequestHandler;
 import org.apache.wicket.request.cycle.AbstractRequestCycleListener;
 import org.apache.wicket.request.cycle.RequestCycle;
@@ -19,7 +15,6 @@ import org.apache.wicket.request.handler.RenderPageRequestHandler;
 import org.apache.wicket.request.handler.RenderPageRequestHandler.RedirectPolicy;
 import org.apache.wicket.request.http.WebRequest;
 import org.apache.wicket.request.mapper.StalePageException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +30,7 @@ public class WicketRequestCycleListener extends AbstractRequestCycleListener
     private static final Logger LOGGER = LoggerFactory.getLogger(
         WicketRequestCycleListener.class
     );
-    
+
     /**
      * Exception types we consider "recoverable", meaning we don't have to
      * log a detailed stack trace for these.
@@ -45,7 +40,7 @@ public class WicketRequestCycleListener extends AbstractRequestCycleListener
         PageExpiredException.class,
         AuthorizationException.class
     );
-    
+
     /**
      * Consider putting custom exception handling logic here.
      * For example, you could catch an {@code ObjectNotFoundException} here and redirect
@@ -75,7 +70,7 @@ public class WicketRequestCycleListener extends AbstractRequestCycleListener
     private IRequestHandler createErrorPageHandler(RequestCycle cycle, Class<? extends Page> page)
     {
         RedirectPolicy redirectPolicy = RedirectPolicy.NEVER_REDIRECT;
-        
+
         if(cycle.getRequest() instanceof WebRequest && ((WebRequest) cycle.getRequest()).isAjax())
         {
             redirectPolicy = RedirectPolicy.ALWAYS_REDIRECT;

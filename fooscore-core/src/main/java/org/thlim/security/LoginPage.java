@@ -1,8 +1,8 @@
 package org.thlim.security;
 
-import org.thlim.EmptyPage;
 import fiftyfive.wicket.shiro.markup.LoginForm;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.thlim.EmptyPage;
 
 /**
  * A simple login page containing a {@link LoginForm} and {@link FeedbackPanel}

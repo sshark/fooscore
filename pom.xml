@@ -12,18 +12,18 @@
     <!-- Core Project Information                                             -->
     <!-- ==================================================================== -->
     <groupId>org.thlim</groupId>
-    <artifactId>foosball-parent</artifactId>
+    <artifactId>fooscore-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>foosball-core</module>
+        <module>fooscore-core</module>
     </modules>
 
     <!-- ==================================================================== -->
     <!-- Project Description                                                  -->
     <!-- ==================================================================== -->
-    <name>foosball-scorecard</name>
+    <name>fooscore</name>
     <description>
         Foosball player score card management
     </description>

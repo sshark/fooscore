@@ -1,11 +1,11 @@
 package org.thlim.admin;
 
+import org.apache.shiro.authz.AuthorizationException;
+import org.junit.Test;
 import org.thlim.BaseWicketUnitTest;
 import org.thlim.home.HomePage;
 import org.thlim.security.LoginPage;
 
-import org.apache.shiro.authz.AuthorizationException;
-import org.junit.Test;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
@@ -23,7 +23,7 @@ public class AdministrationPageTest extends BaseWicketUnitTest
         doRender(false, false);
         this.tester.assertRenderedPage(LoginPage.class);
     }
-    
+
     @Test
     public void testRender_asUnauthorized() throws Exception
     {
@@ -31,14 +31,14 @@ public class AdministrationPageTest extends BaseWicketUnitTest
         this.tester.assertRenderedPage(HomePage.class);
         this.tester.assertErrorMessages("Sorry, you are not allowed to access that page.");
     }
-    
+
     @Test
     public void testRender_asAuthorized() throws Exception
     {
         doRender(true, true);
         this.tester.assertRenderedPage(AdministrationPage.class);
     }
-    
+
     private void doRender(boolean authenticated, boolean isAdmin)
     {
         when(this.mockSubject.isAuthenticated()).thenReturn(authenticated);

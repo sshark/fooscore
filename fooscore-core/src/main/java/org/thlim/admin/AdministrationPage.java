@@ -1,9 +1,8 @@
 package org.thlim.admin;
 
-import org.thlim.BasePage;
-import static fiftyfive.wicket.util.Shortcuts.*;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.thlim.BasePage;
 
 /**
  * An example of a page that is secured via Shiro annotations.

@@ -1,8 +1,9 @@
 package org.thlim.error;
 
-import org.thlim.EmptyPage;
-import static fiftyfive.wicket.util.Shortcuts.*;
 import org.apache.wicket.request.http.WebResponse;
+import org.thlim.EmptyPage;
+
+import static fiftyfive.wicket.util.Shortcuts.cssClass;
 
 /**
  * Base class for custom error pages.
@@ -17,13 +18,13 @@ public abstract class BaseErrorPage extends EmptyPage
         super(null);
         getBody().add(cssClass("server-error"));
     }
-    
+
     /**
      * Subclasses must implement to provide the HTTP status error code.
      * For example, 404 for the {@link NotFoundErrorPage}.
      */
     protected abstract int getErrorCode();
-    
+
     /**
      * Make sure we emit the proper HTTP status.
      */

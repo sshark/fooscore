@@ -1,17 +1,13 @@
 package org.thlim;
 
 import fiftyfive.wicket.shiro.test.AbstractShiroJUnit4Tests;
-
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.request.Request;
 import org.apache.wicket.request.Response;
 import org.apache.wicket.util.tester.WicketTester;
-
 import org.junit.After;
 import org.junit.Before;
-
 import org.mockito.MockitoAnnotations;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.StaticWebApplicationContext;
 
@@ -24,7 +20,7 @@ public abstract class BaseWicketUnitTest extends AbstractShiroJUnit4Tests
 {
     protected WicketSession session;
     protected WicketTester tester;
-    
+
     @Before
     public void createTester()
     {
@@ -60,7 +56,7 @@ public abstract class BaseWicketUnitTest extends AbstractShiroJUnit4Tests
             }
         });
     }
-    
+
     @After
     public void destroyTester()
     {
@@ -68,7 +64,7 @@ public abstract class BaseWicketUnitTest extends AbstractShiroJUnit4Tests
         this.tester = null;
         this.session = null;
     }
-    
+
     /**
      * Subclasses should override this method to register mock Spring beans
      * in the Spring context. This will allow Wicket components that contain
@@ -82,7 +78,7 @@ public abstract class BaseWicketUnitTest extends AbstractShiroJUnit4Tests
      * Example usage:
      * <pre class="example">
      * &#064;Mock MyService myService;
-     * 
+     *
      * protected void initSpringContext(StaticWebApplicationContext ctx)
      * {
      *     super.initSpringContext(ctx);
