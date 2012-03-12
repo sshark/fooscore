@@ -7,22 +7,22 @@
     <h1>Register a new player</h1>
 
     <div wicket:id="feedback" class="alerts"></div>
-    <form wicket:id="newPlayerForm">
+    <form wicket:id="newPlayerForm" autocomplete="off">
         <fieldset>
             <label wicket:id="nickLabel">Nick </label>
-            <input wicket:id="nick" type="text" maxlength="12"/>
+            <input wicket:id="nick" type="text" maxlength="12"  autocapitalize="off" autocorrect="off" autofocus="autofocus"/>
         </fieldset>
         <fieldset>
             <label wicket:id="emailLabel">Email (for login)</label>
-            <input wicket:id="email" type="email" autocapitalize="off" autocorrect="off" autofocus="autofocus"/>
+            <input wicket:id="email" type="email" autocapitalize="off" autocorrect="off" />
         </fieldset>
         <fieldset>
             <label wicket:id="passwordLabel">Password</label>
-            <input wicket:id="password" type="password"/>
+            <input wicket:id="password" type="password" />
         </fieldset>
         <fieldset>
             <label wicket:id="verifyPasswordLabel">Verify Password</label>
-            <input wicket:id="verifyPassword" type="password"/>
+            <input wicket:id="verifyPassword" type="password" />
         </fieldset>
         <fieldset>
             <input type="submit" value="Register Player"/>
