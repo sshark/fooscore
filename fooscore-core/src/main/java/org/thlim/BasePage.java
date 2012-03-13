@@ -28,14 +28,14 @@ public class BasePage extends EmptyPage
     {
         this(null);
     }
-    
+
     public BasePage(PageParameters params)
     {
         super(params);
-        
+
         // Login/logout link
         add(new AuthenticationStatusPanel("authStatus"));
-        
+
         // For general "you have been logged out", etc. messages
         add(new FeedbackPanel("feedback"));
 
