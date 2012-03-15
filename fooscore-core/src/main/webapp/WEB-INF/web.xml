@@ -89,6 +89,22 @@
 
 
     <!-- ==================================================================== -->
+    <!-- Lift                                                               -->
+    <!-- ==================================================================== -->
+
+    <filter>
+        <filter-name>LiftFilter</filter-name>
+        <display-name>Lift Filter</display-name>
+        <description>The Filter that intercepts lift calls</description>
+        <filter-class>net.liftweb.http.LiftFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LiftFilter</filter-name>
+        <url-pattern>/fooscala/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ==================================================================== -->
     <!-- Wicket                                                               -->
     <!-- ==================================================================== -->
 
@@ -105,18 +121,6 @@
             <param-value>deployment</param-value>
         </init-param>
     </filter>
-
-    <filter>
-        <filter-name>LiftFilter</filter-name>
-        <display-name>Lift Filter</display-name>
-        <description>The Filter that intercepts lift calls</description>
-        <filter-class>net.liftweb.http.LiftFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>LiftFilter</filter-name>
-        <url-pattern>/splendid/*</url-pattern>
-    </filter-mapping>
 
     <filter-mapping>
         <filter-name>wicket</filter-name>

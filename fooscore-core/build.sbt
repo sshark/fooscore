@@ -12,7 +12,7 @@ resolvers += "apache-snapshots" at "http://repository.apache.org/snapshots"
 
 resolvers += "Java.net Maven2 Repository" at "http://download.java.net/maven/2/"
 
-libraryDependencies += "net.liftweb" %% "lift-webkit" % "2.4-M5" % "compile->default" exclude("joda-time", "joda-time")
+libraryDependencies += "net.liftweb" %% "lift-webkit" % "2.4-M5" % "compile->default"
 
 libraryDependencies += "junit" % "junit" % "4.5" % "test->default"
 
@@ -22,9 +22,9 @@ libraryDependencies += "com.h2database" % "h2" % "1.2.138"
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "0.9.26" % "compile->default"
 
-libraryDependencies += "net.liftweb" %% "lift-mapper" % "2.4-M5" % "compile->default" exclude("joda-time", "joda-time")
+libraryDependencies += "net.liftweb" %% "lift-mapper" % "2.4-M5" % "compile->default"
 
-libraryDependencies += "net.liftweb" %% "lift-wizard" % "2.4-M5" % "compile->default" exclude("joda-time", "joda-time")
+libraryDependencies += "net.liftweb" %% "lift-wizard" % "2.4-M5" % "compile->default"
 
 libraryDependencies +=  "com.55minutes" % "fiftyfive-wicket-core" % "4.0-SNAPSHOT" % "compile->default"
 
@@ -36,7 +36,12 @@ libraryDependencies +=  "org.apache.wicket" % "wicket-core" % "1.5-SNAPSHOT"
 
 libraryDependencies +=  "org.apache.wicket" % "wicket-datetime" % "1.5-SNAPSHOT"
 
-libraryDependencies +=  "org.joda" % "joda-convert" % "1.1" % "provided"
+/*
+    this package is marked optional in joda-time dependency.
+    Scala requires all classes to be available during compilation hence it is explicitly included here
+    as "provided"
+*/
+libraryDependencies +=  "org.joda" % "joda-convert" % "1.1"
 
 libraryDependencies +=  "org.apache.wicket" % "wicket-devutils" % "1.5-SNAPSHOT"
 
@@ -93,3 +98,11 @@ seq(webSettings :_*)
 libraryDependencies += "org.mortbay.jetty" % "jetty" % "6.1.22" % "test,container"
 
 libraryDependencies += "org.scala-tools.testing" %% "specs" % "1.6.9" % "test"
+
+unmanagedResourceDirectories in Compile <<=
+    Seq(resourceDirectory in Compile, scalaSource in Compile, javaSource in Compile).join
+
+// this is needed to prevent clashing when scala and java have similar package trees.
+//unmanagedResources in Compile ~= (_.filterNot(_.isDirectory))
+
+//defaultExcludes in unmanagedResources <<= (defaultExcludes in unmanagedResources, sourceFilter){_||_}

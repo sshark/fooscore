@@ -9,8 +9,8 @@ import org.apache.wicket.request.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.thlim.error.InternalServerErrorPage;
-import org.thlim.home.HomePage;
 import org.thlim.security.LoginPage;
+import org.thlim.user.RegisterPlayerPage;
 
 
 /**
@@ -31,9 +31,9 @@ public class WicketApplication extends FoundationSpringApplication
     }
 
     @Override
-    public Class<HomePage> getHomePage()
+    public Class<RegisterPlayerPage> getHomePage()
     {
-        return HomePage.class;
+        return RegisterPlayerPage.class;
     }
 
     @Override

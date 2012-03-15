@@ -23,9 +23,9 @@
     <!-- ==================================================================== -->
     <!-- Project Description                                                  -->
     <!-- ==================================================================== -->
-    <name>fooscore</name>
+    <name>FooScore Parent</name>
     <description>
-        Foosball player score card management
+        Foosball score card management
     </description>
 
 
