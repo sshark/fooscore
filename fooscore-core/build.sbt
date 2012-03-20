@@ -105,4 +105,12 @@ unmanagedResourceDirectories in Compile <<=
 // this is needed to prevent clashing when scala and java have similar package trees.
 //unmanagedResources in Compile ~= (_.filterNot(_.isDirectory))
 
-//defaultExcludes in unmanagedResources <<= (defaultExcludes in unmanagedResources, sourceFilter){_||_}
+// defaultExcludes in unmanagedResources <<= (defaultExcludes in unmanagedResources, sourceFilter){_.}
+
+excludeFilter in unmanagedResources := "*.less"
+
+seq(lessSettings : _*)
+
+(compile in Compile) <<= compile in Compile dependsOn (LessKeys.less in Compile)
+
+(resourceManaged in (Compile, LessKeys.less)) <<= (resourceDirectory in Compile) (_ / "..")

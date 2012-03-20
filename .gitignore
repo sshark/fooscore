@@ -4,6 +4,7 @@ target/
 /log4j.properties
 src/test/resources/log4j.properties
 **/src/main/resources/org/thlim/styles-compiled/
+**/src/main/resources/org/thlim/less/*.css
 **/src/main/resources/org/thlim/images/icon-*
 .idea/
 *.iml
